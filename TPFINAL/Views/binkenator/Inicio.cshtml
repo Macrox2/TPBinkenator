@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .ezoic-ad.box-2 {
+        display: block !important;
+        float: none !important;
+        margin-bottom: 15px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-top: 15px !important;
+        min-height: 90px;
+        min-width: 728px;
+        text-align: center !important;
+    }
+
+    .ezoic-ad {
+        display: inline-block;
+    }
+
+    .adtester-container-100 {
+        display: none !important
+    }
+
+    .adtester-container-102 {
+        display: none !important
+    }
+
+    .adtester-container-103 {
+        display: none !important
+    }
+
+    .adtester-container-104 {
+        display: none !important
+    }
+
+    .adtester-container-105 {
+        display: none !important
+    }
+
+    .adtester-container-106 {
+        display: none !important
+    }
+
+    .ezoic-floating-bottom {
+        display: none !important;
+    }
+</style>
+<div class="container home">
+    <div class="row">
+        <div class="bubble-left bubble-home bubble">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="210" height="106"><polygon points="0,0 180,0 180,20 210,20 195,35 189,42 183,50 181,55 180,60 180,106 0,106"></polygon></svg>
+            <p>Hola, soy Binkenator.</p>
+        </div>
+        <div class="akinator-home"><img class="body" src="~/Content/Images/akinator.png" alt="corps akinator"></div>
+        <div class="bubble-right bubble-home bubble">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="325" height="218"><polygon points="30,0 30,20 0,20 15,35 21,42 27,50 29,55 30,60 30,218 255,218 255,0"></polygon></svg>
+            <p>
+                Piense en un personaje real o ficticio.<br>Voy a intentar adivinar quién es
+            </p>
+
+
+        </div>
+        <div class="center-block wrapper">
+            <a class="button center-block" href="#">Jugar</a>
+        </div>
+
+        <!-- Filter: https://css-tricks.com/gooey-effect/ -->
+        <svg style="visibility: hidden;  position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="goo" class="center-block">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                </filter>
+            </defs>
+        </svg>
+
+    </div>
+
+</div>
