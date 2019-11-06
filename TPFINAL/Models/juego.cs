@@ -12,7 +12,7 @@ namespace TPFINAL.Models
         public static string ultimaRespuesta;
         public static int respuestasRestantes;
         public static bool primeravez=true;
-        public static bool decisivas=false;
+        public static bool yaHechoDecisivas=false;
 
 
         public static void HacerRandom ()
@@ -27,7 +27,7 @@ namespace TPFINAL.Models
         {
             if (primeravez == true || respuestasRestantes == 0)
             {
-                if (decisivas == false)
+                if (yaHechoDecisivas == false)
                 {
                     List<Respuesta> devolver = new List<Respuesta>();
                     for (int i = 0; i < respuestasTotal.Count; i++)
@@ -38,7 +38,7 @@ namespace TPFINAL.Models
                         }
                     }
                     primeravez = false;
-                    decisivas = true;
+                    yaHechoDecisivas = true;
                     listaActual = devolver;
                 }
                 else
@@ -52,7 +52,7 @@ namespace TPFINAL.Models
                         }
                     }
                     primeravez = true;
-                    decisivas = false;
+                    yaHechoDecisivas = false;
                     listaActual = devolver;
                 }
             }
