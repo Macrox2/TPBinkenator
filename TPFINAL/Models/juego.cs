@@ -7,15 +7,16 @@ namespace TPFINAL.Models
 {
     public static class juego
     {
-        public static List<Respuesta> respuestasDecisivas = new List<Respuesta>();
+        public static List<Respuesta> listaActual = new List<Respuesta>();
         public static List<Respuesta> respuestasTotal = new List<Respuesta>();
         public static string ultimaRespuesta;
+
 
         public static void HacerRandom ()
         {
             Random random = new Random();
-            int randomNumber = random.Next(0, respuestasDecisivas.Count);
-            string devolver = respuestasDecisivas[randomNumber].respuesta;
+            int randomNumber = random.Next(0, listaActual.Count);
+            string devolver = listaActual[randomNumber].respuesta;
             ultimaRespuesta = devolver;
         }
         public static void decisivas()
@@ -28,44 +29,44 @@ namespace TPFINAL.Models
                     devolver.Add(respuestasTotal[i]);
                 }
             }
-            respuestasDecisivas = devolver;
+            listaActual = devolver;
         }
-        public static void FiltrarCorrectas (bool respuesta)
+        public static void FiltrarCorrectas (string respuesta)
         {
             List<Respuesta> devolver = new List<Respuesta>();
-             string filtro="";
+            string filtro="";
             int i=0;
             bool encontre = false;
-            while (i < respuestasTotal.Count && encontre == false)
+            while (encontre == false)
             {
-                if (respuestasTotal[i].respuesta == ultimaRespuesta)
+                if (listaActual[i].respuesta == ultimaRespuesta)
                 {
-                    filtro = respuestasTotal[i].Filtro;
+                    filtro = listaActual[i].Filtro;
                     encontre = true;
                 }
-            }85
-            if (respuesta == false)
+            }
+            if (respuesta == "si")
             {
-                for (int z = 0; z < respuestasTotal.Count; z++)
+                for (int z = 0; z < listaActual.Count; z++)
                 {
-                    if (respuestasTotal[z].Filtro == filtro)
+                    if (listaActual[z].Filtro == filtro)
                     {
-                        if (respuestasTotal[z].respuesta == ultimaRespuesta)
+                        if (listaActual[z].respuesta == ultimaRespuesta)
                         {
-                            respuestasTotal.RemoveAt(z);             
+                            listaActual.RemoveAt(z);             
                         }
                     }
                 }
             }
             else
             {
-                for (int z = 0; z < respuestasTotal.Count; z++)
+                for (int z = 0; z < listaActual.Count; z++)
                 {
-                    if (respuestasTotal[z].Filtro != filtro)
+                    if (listaActual[z].Filtro == filtro)
                     {
-                        if (respuestasTotal[z].respuesta == ultimaRespuesta)
+                        if (listaActual[z].respuesta != ultimaRespuesta)
                         {
-                            respuestasTotal.RemoveAt(z);
+                            listaActual.RemoveAt(z);
                         }
                     }
                 }

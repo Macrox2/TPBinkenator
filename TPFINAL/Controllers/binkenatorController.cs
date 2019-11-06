@@ -19,18 +19,18 @@ namespace TPFINAL.Controllers
             return View();
         }
 
-        public ActionResult PrimeraVez()
+        public ActionResult crearPregunta()
         {
-            juego.decisivas();
             juego.respuestasTotal = BD.TraerRespuestas();
+            juego.decisivas();
             juego.HacerRandom();
             ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
             return View();
         }
 
-        public ActionResult eliminarSegunRespuesta()
+        public ActionResult eliminarSegunRespuesta(string respuesta)
         {
-            //juego.FiltrarCorrectas(/*que boton tocó*/);
+            juego.FiltrarCorrectas(respuesta);
             return View();
         }
     }
