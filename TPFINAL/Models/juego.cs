@@ -10,6 +10,9 @@ namespace TPFINAL.Models
         public static List<Respuesta> listaActual = new List<Respuesta>();
         public static List<Respuesta> respuestasTotal = new List<Respuesta>();
         public static string ultimaRespuesta;
+        public static int respuestasRestantes;
+        public static bool primeravez=true;
+        public static bool decisivas=false;
 
 
         public static void HacerRandom ()
@@ -17,19 +20,42 @@ namespace TPFINAL.Models
             Random random = new Random();
             int randomNumber = random.Next(0, listaActual.Count);
             string devolver = listaActual[randomNumber].respuesta;
+            respuestasRestantes--;
             ultimaRespuesta = devolver;
         }
         public static void decisivas()
         {
-            List<Respuesta> devolver=new List<Respuesta>();
-            for(int i = 0; i < respuestasTotal.Count; i++)
+            if (primeravez == true || respuestasRestantes == 0)
             {
-                if (respuestasTotal[i].Decisivo == true)
+                if (decisivas == false)
                 {
-                    devolver.Add(respuestasTotal[i]);
+                    List<Respuesta> devolver = new List<Respuesta>();
+                    for (int i = 0; i < respuestasTotal.Count; i++)
+                    {
+                        if (respuestasTotal[i].Decisivo == true)
+                        {
+                            devolver.Add(respuestasTotal[i]);
+                        }
+                    }
+                    primeravez = false;
+                    decisivas = true;
+                    listaActual = devolver;
+                }
+                else
+                {
+                    List<Respuesta> devolver = new List<Respuesta>();
+                    for (int i = 0; i < respuestasTotal.Count; i++)
+                    {
+                        if (respuestasTotal[i].Decisivo == false)
+                        {
+                            devolver.Add(respuestasTotal[i]);
+                        }
+                    }
+                    primeravez = true;
+                    decisivas = false;
+                    listaActual = devolver;
                 }
             }
-            listaActual = devolver;
         }
         public static void FiltrarCorrectas (string respuesta)
         {
