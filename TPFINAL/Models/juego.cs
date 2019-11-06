@@ -43,7 +43,7 @@ namespace TPFINAL.Models
                     filtro = respuestasTotal[i].Filtro;
                     encontre = true;
                 }
-            }
+            }85
             if (respuesta == false)
             {
                 for (int z = 0; z < respuestasTotal.Count; z++)
