@@ -196,13 +196,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\binkenator\Juego.cshtml" />
+    <Content Include="Views\binkenator\JuegoOld.cshtml" />
     <Content Include="Views\binkenator\Inicio.cshtml" />
     <Content Include="Views\binkenator\Fin.cshtml" />
+    <Content Include="Views\binkenator\Juego.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
+    <Folder Include="Content\Images\Personajes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
