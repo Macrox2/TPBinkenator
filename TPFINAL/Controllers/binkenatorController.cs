@@ -19,13 +19,38 @@ namespace TPFINAL.Controllers
             return View();
         }
 
+        public ActionResult Fin()
+        {
+            ViewBag.Foto = "";
+            ViewBag.Nombre = "pedro";
+            return View();
+        }
+
         public ActionResult crearPregunta()
         {
-            juego.respuestasTotal = BD.TraerRespuestas();
-            juego.decisivas();
-            juego.HacerRandom();
-            ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
-            return View();
+            if (juego.adivinado == "no")
+            {
+                juego.respuestasTotal = BD.TraerRespuestas();
+                juego.decisivas();
+                juego.HacerRandom();
+                ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
+                return View();
+            }
+            else
+            {
+                if (juego.adivinado == "si")
+                {
+                    //view ganado
+
+                    return View();
+                }
+                else
+                {
+                    //view agregar
+
+                    return View();
+                }
+            }
         }
 
         public ActionResult eliminarSegunRespuesta(string respuesta)

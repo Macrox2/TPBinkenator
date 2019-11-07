@@ -155,6 +155,7 @@
     <Compile Include="Models\BD.cs" />
     <Compile Include="Models\Filtro.cs" />
     <Compile Include="Models\juego.cs" />
+    <Compile Include="Models\Personaje.cs" />
     <Compile Include="Models\Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
