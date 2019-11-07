@@ -13,6 +13,7 @@ namespace TPFINAL.Models
         public static int respuestasRestantes;
         public static bool primeravez=true;
         public static bool yaHechoDecisivas=false;
+        public static string adivinado = "no";
 
 
         public static void HacerRandom ()
@@ -43,17 +44,31 @@ namespace TPFINAL.Models
                 }
                 else
                 {
-                    List<Respuesta> devolver = new List<Respuesta>();
-                    for (int i = 0; i < respuestasTotal.Count; i++)
+                    if (respuestasRestantes > 0)
                     {
-                        if (respuestasTotal[i].Decisivo == false)
+                        List<Respuesta> devolver = new List<Respuesta>();
+                        for (int i = 0; i < respuestasTotal.Count; i++)
                         {
-                            devolver.Add(respuestasTotal[i]);
+                            if (respuestasTotal[i].Decisivo == false)
+                            {
+                                devolver.Add(respuestasTotal[i]);
+                            }
+                        }
+                        primeravez = true;
+                        yaHechoDecisivas = false;
+                        listaActual = devolver;
+                    }
+                    else
+                    {
+                        if (respuestasRestantes == 1)
+                        {
+                            adivinado = "si";
+                        }
+                        else
+                        {
+                            adivinado = "!!";
                         }
                     }
-                    primeravez = true;
-                    yaHechoDecisivas = false;
-                    listaActual = devolver;
                 }
             }
         }
