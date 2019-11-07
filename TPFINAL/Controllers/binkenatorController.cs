@@ -34,7 +34,6 @@ namespace TPFINAL.Controllers
                 juego.filtrosTotales = BD.TraerFiltros();
                 juego.decisivas();
                 juego.HacerRandom();
-                //
                 ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
                 return View("juego");
             }

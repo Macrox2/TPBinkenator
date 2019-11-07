@@ -45,9 +45,9 @@ namespace TPFINAL.Models
                 while (lector.Read())
                 {
                     string filtro = (lector["Correcta"]).ToString();
-                    Filtro miFiltro = new Filtro(filtro);
                     bool decisivo = Convert.ToBoolean(lector["esDecisiva"]);
-                    filtros.Add(miFiltro, decisivo);
+                    Filtro miFiltro = new Filtro(filtro,decisivo);
+                    filtros.Add(miFiltro);
                 }
             }
             Desconectar(conexion);

@@ -15,12 +15,11 @@ namespace TPFINAL.Models
         {
         }
 
-        public Respuesta(string filtro, int id_Personaje, string Respuesta, bool decisivo)
+        public Respuesta(string filtro, int id_Personaje, string Respuesta)
         {
             Filtro = filtro;
             Id_Personaje = id_Personaje;
             respuesta = Respuesta;
-            Decisivo = decisivo;
         }
 
         public string Filtro { get => _filtro; set => _filtro = value; }
