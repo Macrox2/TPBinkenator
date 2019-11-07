@@ -46,7 +46,8 @@ namespace TPFINAL.Models
                 {
                     string filtro = (lector["Correcta"]).ToString();
                     Filtro miFiltro = new Filtro(filtro);
-                    filtros.Add(miFiltro);
+                    bool decisivo = Convert.ToBoolean(lector["esDecisiva"]);
+                    filtros.Add(miFiltro, decisivo);
                 }
             }
             Desconectar(conexion);
@@ -69,8 +70,7 @@ namespace TPFINAL.Models
                     string filtro = (lector["filtro"]).ToString();
                     int idPer = Convert.ToInt32(lector["id_Personaje"]);
                     string rta = (lector["respuesta"]).ToString();
-                    bool decisivo= Convert.ToBoolean(lector["esDecisiva"]);
-                    Respuesta miRta = new Respuesta(filtro,idPer,rta, decisivo);
+                    Respuesta miRta = new Respuesta(filtro,idPer,rta);
                     lstRespuestas.Add(miRta);
                 }
             }

@@ -31,6 +31,7 @@ namespace TPFINAL.Controllers
             if (juego.adivinado == "no")
             {
                 juego.respuestasTotal = BD.TraerRespuestas();
+                Juego.filtrosTotales = BD.TraerFiltros;
                 juego.decisivas();
                 juego.HacerRandom();
                 //

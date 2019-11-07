@@ -15,7 +15,7 @@ namespace TPFINAL.Models
         public static bool yaHechoDecisivas=false;
         public static string adivinado = "no";
         public static int personajeID;
-
+        public static List<Filtro> filtrosTotales = new List<Filtro>();
 
         public static void HacerRandom ()
         {

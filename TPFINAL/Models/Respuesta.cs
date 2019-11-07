@@ -10,7 +10,6 @@ namespace TPFINAL.Models
         private string _filtro;
         private int _id_Personaje;
         private string _Respuesta;
-        private bool _decisivo;
 
         public Respuesta()
         {
