@@ -33,6 +33,7 @@ namespace TPFINAL.Controllers
                 juego.respuestasTotal = BD.TraerRespuestas();
                 juego.decisivas();
                 juego.HacerRandom();
+                //
                 ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
                 return View();
             }
