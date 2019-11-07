@@ -12,10 +12,13 @@ namespace TPFINAL.Models
 
         public Filtro() { }
 
-        public Filtro(string filtro)
+        public Filtro(string filtro, bool decisivo)
         {
             _filtro = filtro;
+            _decisivo = decisivo;
         }
 
+        public string filtro { get => _filtro; set => _filtro = value; }
+        public bool Decisivo { get => _decisivo; set => _decisivo = value; }
     }
 }

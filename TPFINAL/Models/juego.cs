@@ -7,7 +7,7 @@ namespace TPFINAL.Models
 {
     public static class juego
     {
-        public static List<Respuesta> listaActual = new List<Respuesta>();
+        public static List<Filtro> listaActual = new List<Filtro>();
         public static List<Respuesta> respuestasTotal = new List<Respuesta>();
         public static string ultimaRespuesta;
         public static int respuestasRestantes;
@@ -21,6 +21,10 @@ namespace TPFINAL.Models
         {
             Random random = new Random();
             int randomNumber = random.Next(0, listaActual.Count);
+            for(int i = 0; i < respuestasTotal.Count; i++)
+            {
+
+            }
             string devolver = listaActual[randomNumber].respuesta;
             respuestasRestantes--;
             ultimaRespuesta = devolver;
@@ -31,12 +35,12 @@ namespace TPFINAL.Models
             {
                 if (yaHechoDecisivas == false)
                 {
-                    List<Respuesta> devolver = new List<Respuesta>();
+                    List<Filtro> devolver = new List<Filtro>();
                     for (int i = 0; i < respuestasTotal.Count; i++)
                     {
-                        if (respuestasTotal[i].Decisivo == true)
+                        if (filtrosTotales[i].Decisivo == true)
                         {
-                            devolver.Add(respuestasTotal[i]);
+                            devolver.Add(filtrosTotales[i]);
                         }
                     }
                     primeravez = false;
