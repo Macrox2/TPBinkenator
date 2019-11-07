@@ -22,7 +22,7 @@
                     <div class="bubble-question bubble">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="85" height="102"><polygon points="30,0 30,20 29,25 27,30 22,37 15,45 0,60 30,60 30,102 85,102 85,0"></polygon></svg>
                         <div class="bubble-tail"><p class="question-number">1</p></div>
-                        <div class="bubble-body"><p class="question-text">¿Tu personaje es de género femenino?</p></div>
+                        <div class="bubble-body"><p class="question-text">@ViewBag.pregunta</p></div>
                     </div>
                     <div class="database-selection selector dialog-box">
                         <div style="top: 10.0144px; width: 220px; opacity: 0;"></div>
@@ -34,7 +34,7 @@
                                 @Html.ActionLink("No", "eliminarSegunRespuesta", new { rta = "no" })
                             </li>
                             <li>
-                                @Html.ActionLink("No", "eliminarSegunRespuesta", new { rta = "no" })
+                                @Html.ActionLink("No se", "eliminarSegunRespuesta", new { rta = "no" })
                             </li>
                             <li>
                                 @Html.ActionLink("Probablemente", "eliminarSegunRespuesta", new { rta = "si" })
