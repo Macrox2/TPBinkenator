@@ -14,6 +14,7 @@ namespace TPFINAL.Models
         public static bool primeravez=true;
         public static bool yaHechoDecisivas=false;
         public static string adivinado = "no";
+        public static int personajeID;
 
 
         public static void HacerRandom ()
@@ -63,6 +64,7 @@ namespace TPFINAL.Models
                         if (respuestasRestantes == 1)
                         {
                             adivinado = "si";
+                            //personajeID = respuestasRestantes[0].ID;
                         }
                         else
                         {

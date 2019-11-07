@@ -19,6 +19,13 @@ namespace TPFINAL.Controllers
             return View();
         }
 
+        public ActionResult Fin()
+        {
+            ViewBag.Foto = "";
+            ViewBag.Nombre = "pedro";
+            return View();
+        }
+
         public ActionResult crearPregunta()
         {
             if (juego.adivinado == "no")
