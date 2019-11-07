@@ -8,7 +8,7 @@ namespace TPFINAL.Models
 {
     public static class BD
     {
-        private static string _connectionString = "asd";
+        private static string _connectionString = "Server=.;Database=Akinator;Trusted_Connection=True;";
 
         public static string connectionString
         {

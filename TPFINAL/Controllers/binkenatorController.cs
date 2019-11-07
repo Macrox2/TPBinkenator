@@ -16,7 +16,7 @@ namespace TPFINAL.Controllers
         }
         public ActionResult Juego()
         {
-            return View();
+            return RedirectToAction("crearPregunta");
         }
 
         public ActionResult Fin()
