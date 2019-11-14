@@ -8,7 +8,7 @@ namespace TPFINAL.Models
 {
     public static class BD
     {
-        private static string _connectionString = "Server=.;Database=Akinator;Trusted_Connection=True;";
+        private static string _connectionString = "Server=.;Database=Akinator;User ID=alumno;Password=alumno1;";
 
         public static string connectionString
         {
@@ -44,8 +44,13 @@ namespace TPFINAL.Models
             {
                 while (lector.Read())
                 {
-                    string filtro = (lector["Correcta"]).ToString();
-                    bool decisivo = Convert.ToBoolean(lector["esDecisiva"]);
+                    string filtro = (lector["filtro"]).ToString();
+                    int idecisivo = Convert.ToInt32(lector["esDecisiva"]);
+                    bool decisivo=true;
+                    if (idecisivo == 0)
+                    {
+                        decisivo = false;
+                    }                    
                     Filtro miFiltro = new Filtro(filtro,decisivo);
                     filtros.Add(miFiltro);
                 }

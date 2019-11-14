@@ -16,7 +16,14 @@ namespace TPFINAL.Controllers
         }
         public ActionResult Juego()
         {
-            return RedirectToAction("crearPregunta");
+            if (juego.primeravez == true)
+            {
+                return RedirectToAction("PrimeraVez");
+            }
+            else
+            {
+                return RedirectToAction("crearPregunta");
+            }
         }
 
         public ActionResult Fin()
@@ -30,8 +37,6 @@ namespace TPFINAL.Controllers
         {
             if (juego.adivinado == "no")
             {
-                juego.respuestasTotal = BD.TraerRespuestas();
-                juego.filtrosTotales = BD.TraerFiltros();
                 juego.decisivas();
                 juego.HacerRandom();
                 ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
@@ -52,6 +57,16 @@ namespace TPFINAL.Controllers
                     return View();
                 }
             }
+        }
+
+        public ActionResult PrimeraVez()
+        {
+            juego.respuestasTotal = BD.TraerRespuestas();
+            juego.filtrosTotales = BD.TraerFiltros();
+            juego.decisivas();
+            juego.HacerRandom();
+            ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
+            return View("juego");
         }
 
         public ActionResult eliminarSegunRespuesta(string respuesta)

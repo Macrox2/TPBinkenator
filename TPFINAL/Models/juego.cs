@@ -9,47 +9,37 @@ namespace TPFINAL.Models
     {
         public static List<Filtro> listaActualFiltros = new List<Filtro>();
         public static List<Respuesta> respuestasTotal = new List<Respuesta>();
-        public static int ultimaRespuesta;
+        public static string ultimaRespuesta;
+        public static string ultimoFiltro;
         public static int respuestasRestantes;
         public static bool primeravez=true;
         public static bool yaHechoDecisivas=false;
         public static string adivinado = "no";
         public static int personajeID;
         public static List<Filtro> filtrosTotales = new List<Filtro>();
-        public static List<Respuesta> ListaActualRespuestas = new List<Respuesta>();
+        public static List<Respuesta> listaActualRespuestas = new List<Respuesta>();
         public static int nroDeResp;
 
 
         public static void HacerRandom ()
         {
             Random random = new Random();
-            bool encontre;
-            int z;
             List<Respuesta> aux = new List<Respuesta>();
             int randomNumber = random.Next(0, listaActualFiltros.Count);
             for(int i = 0; i < respuestasTotal.Count; i++)
-            {
-                z = 0;
-                encontre = false;
-                while(encontre==false&&z>0)
+            { 
+                if (listaActualFiltros[randomNumber].filtro == respuestasTotal[i].Filtro)
                 {
-                    if (listaActualFiltros[z].filtro == respuestasTotal[i].Filtro)
-                    {
-                        aux.Add(respuestasTotal[i]);
-                        encontre = true;
-                    }
-                    z++;
+                    aux.Add(respuestasTotal[i]);
                 }
             }
-            ListaActualRespuestas = aux;
-        }
-
-        public static void preguntaNueva()
-        {
-
+            listaActualRespuestas = aux;
+            int randomResp = random.Next(0, listaActualRespuestas.Count);
+            ultimaRespuesta = listaActualRespuestas[randomResp].respuesta;
             respuestasRestantes--;
-            ultimaRespuesta = devolver;
+            ultimoFiltro = listaActualFiltros[randomNumber].filtro;
         }
+
         public static void decisivas()
         {
             if (primeravez == true || respuestasRestantes == 0)
@@ -57,7 +47,7 @@ namespace TPFINAL.Models
                 if (yaHechoDecisivas == false)
                 {
                     List<Filtro> devolver = new List<Filtro>();
-                    for (int i = 0; i < respuestasTotal.Count; i++)
+                    for (int i = 0; i < filtrosTotales.Count; i++)
                     {
                         if (filtrosTotales[i].Decisivo == true)
                         {
@@ -102,39 +92,23 @@ namespace TPFINAL.Models
         {
             List<Respuesta> devolver = new List<Respuesta>();
             string filtro="";
-            int i=0;
-            bool encontre = false;
-            while (encontre == false)
-            {
-                if (listaActualFiltros[i].respuesta == ultimaRespuesta)
-                {
-                    filtro = listaActualFiltros[i].Filtro;
-                    encontre = true;
-                }
-            }
             if (respuesta == "si")
             {
-                for (int z = 0; z < listaActualFiltros.Count; z++)
+                for (int z = 0; z < listaActualRespuestas.Count; z++)
                 {
-                    if (listaActualFiltros[z].Filtro == filtro)
+                    if (listaActualRespuestas[z].respuesta != ultimaRespuesta)
                     {
-                        if (listaActualFiltros[z].respuesta == ultimaRespuesta)
-                        {
-                            listaActualFiltros.RemoveAt(z);             
-                        }
+                        listaActualRespuestas.RemoveAt(z);             
                     }
                 }
             }
             else
             {
-                for (int z = 0; z < listaActualFiltros.Count; z++)
+                for (int z = 0; z < listaActualRespuestas.Count; z++)
                 {
-                    if (listaActualFiltros[z].Filtro == filtro)
+                    if (listaActualRespuestas[z].respuesta == ultimaRespuesta)
                     {
-                        if (listaActualFiltros[z].respuesta != ultimaRespuesta)
-                        {
-                            listaActualFiltros.RemoveAt(z);
-                        }
+                        listaActualRespuestas.RemoveAt(z);
                     }
                 }
             }                                 

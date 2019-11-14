@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TPFINAL.Models
 {
-    public partial class Filtro
+    public class Filtro
     {
         private string _filtro;
         private bool _decisivo;
