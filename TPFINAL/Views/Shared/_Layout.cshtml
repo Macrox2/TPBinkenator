@@ -1,61 +1,69 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .ezoic-ad.box-2 {
-            display: block !important;
-            float: none !important;
-            margin-bottom: 15px !important;
-            margin-left: 0px !important;
-            margin-right: 0px !important;
-            margin-top: 15px !important;
-            min-height: 90px;
-            min-width: 728px;
-            text-align: center !important;
-        }
 
-        .ezoic-ad {
-            display: inline-block;
-        }
-
-        .adtester-container-100 {
-            display: none !important
-        }
-
-        .adtester-container-102 {
-            display: none !important
-        }
-
-        .adtester-container-103 {
-            display: none !important
-        }
-
-        .adtester-container-104 {
-            display: none !important
-        }
-
-        .adtester-container-105 {
-            display: none !important
-        }
-
-        .adtester-container-106 {
-            display: none !important
-        }
-
-        .ezoic-floating-bottom {
-            display: none !important;
-        }
-    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>Binkenator - El Adivinador</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/akinator.css" type="text/css" rel="stylesheet" />
     <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+
+    <div class="parallax-overlay" id="parallax-overlay">
+        <div class="parallax-layer-1" style="transform: translate3d(605.616px, -99.1638px, 0px); display: none;"></div>
+        <div class="parallax-layer-2" style="transform: translate3d(611.298px, -78.1132px, 0px); display: none;"></div>
+        <div class="parallax-layer-3" style="transform: translate3d(2.60062px, -18.7618px, 0px); display: none;"></div>
+        <div class="parallax-layer-4" style="transform: translate3d(-45.268px, -2.35567px, 0px); display: none;"></div>
+        <div class="parallax-layer-5" style="transform: translate3d(505.113px, -28.8121px, 0px); display: none;"></div>
+        <div class="parallax-layer-6" style="transform: translate3d(510.288px, -78.1132px, 0px); display: none;"></div>
+        <div class="parallax-layer-7" style="transform: translate3d(5.23705px, -17.5072px, 0px); display: none;"></div>
+        <div class="rhombus rhombus-layer-1" style="top: -3.5%; left: 12%; height: 70px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 70px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        <div class="rhombus rhombus-layer-2" style="top: 10%; left: 20%; height: 30px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 30px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        <div class="rhombus rhombus-group group-1" style="width: 50px; top: 18%; left: 8%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-3" style="top: 0px; left: 0px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-4" style="top: -1px; left: 0.3px; height: 40px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 40px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-5" style="top: 0px; left: 0px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-layer-6" style="top: 50%; right: 5%; height: 70px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 70px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        <div class="rhombus rhombus-layer-7" style="top: 80%; left: 8%; height: 30px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 30px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        <div class="rhombus rhombus-layer-8" style="top: 80%; right: 15%; height: 30px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 30px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        <div class="rhombus rhombus-group group-2" style="width: 50px; top: 70%; left: 13%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-9" style="top: 0px; left: 0px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-10" style="top: 0px; left: 0px; height: 20px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 10px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-11" style="top: 0px; left: 0px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-3" style="width: 50px; top: 56%; left: 20%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-12" style="top: 0px; left: 0px; height: 40px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 40px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-13" style="top: 0px; right: 0.3px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-4" style="width: 50px; top: 45%; left: 30%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-14" style="top: 0px; left: 0px; height: 20px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 10px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-15" style="top: 0px; left: 0px; height: 20px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 20px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-5" style="width: 50px; top: 10%; right: 20%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-16" style="top: 0px; left: 0px; height: 16px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 8px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-17" style="top: 0px; left: 0px; height: 18px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 18px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-6" style="width: 50px; top: 60%; right: 12%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-18" style="top: 0px; right: 0.3px; height: 20px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 20px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-19" style="top: 0px; left: 0px; height: 42px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 42px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-7" style="width: 50px; top: 65%; right: 22%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-20" style="top: 0px; left: 0px; height: 40px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 40px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-21" style="top: 0px; right: 0.3px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+        <div class="rhombus rhombus-group group-8" style="width: 50px; top: 20%; right: 15%; height: 50px; opacity: 0.8;">
+            <div class="rhombus rhombus-layer-22" style="top: 0px; left: 0px; height: 40px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 40px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+            <div class="rhombus rhombus-layer-23" style="top: 0px; left: 0px; height: 15px; opacity: 0.8;"><svg viewBox="0 0 12 12" style="width: 15px;"><path class="rhombus" d="M5.9,1.2L0.7,6.5l5.2,5.4l5.2-5.4L5.9,1.2z"></path></svg></div>
+        </div>
+    </div>
+
+
+
     <!--
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -77,16 +85,24 @@
             </div>
         </div>
     </div>-->
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Binkenator</p>
-        </footer>
-    </div>
 
+
+    @RenderBody();
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+<footer>
+    <hr />
+    <div style="width:100%; padding:3px;">
+
+        <div style="width:50%; float:left;">
+             <p style="margin-left: 10%">&copy; @DateTime.Now.Year - Binkenator</p>
+        </div>
+        <div  class="text-right"style="width:47%; float:right; margin-right:3%;">
+            @Html.ActionLink("Agregar Personaje", "AgregarPersonaje", "binkenator", new { })
+        </div>
+        
+    </div>
+</footer>
 </html>
