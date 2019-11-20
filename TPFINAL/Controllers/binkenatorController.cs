@@ -35,11 +35,11 @@ namespace TPFINAL.Controllers
 
         public ActionResult crearPregunta()
         {
+            return RedirectToAction("eliminarSegunRespuesta");
             if (juego.adivinado == "no")
             {
-                juego.decisivas();
                 juego.HacerRandom();
-                ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
+                ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
                 return View("juego");
             }
             else
@@ -65,14 +65,14 @@ namespace TPFINAL.Controllers
             juego.filtrosTotales = BD.TraerFiltros();
             juego.decisivas();
             juego.HacerRandom();
-            ViewBag.pregunta = "es" + juego.ultimaRespuesta + "?";
+            ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
             return View("juego");
         }
 
-        public ActionResult eliminarSegunRespuesta(string respuesta)
+        public ActionResult eliminarSegunRespuesta(string rta)
         {
-            juego.FiltrarCorrectas(respuesta);
-            return View();
+            juego.FiltrarCorrectas(rta);
+            return RedirectToAction("crearPregunta");
         }
     }
 }
