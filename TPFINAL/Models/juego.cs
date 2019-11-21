@@ -76,7 +76,7 @@ namespace TPFINAL.Models
                     }
                     else
                     {
-                        if (respuestasRestantes == 1)
+                        if (respuestasRestantes <= 1)
                         {
                             adivinado = "si";
                         }
@@ -90,24 +90,54 @@ namespace TPFINAL.Models
         }
         public static void FiltrarCorrectas (string respuesta)
         {
-            List<Respuesta> devolver = new List<Respuesta>();
-            bool encontre;
+            List<int> borrar = new List<int>();
+            bool encontre=false;
             int w = 0;
             if (respuesta == "si")
             {
-                for (int z = 0; z <= listaActualRespuestas.Count; z++)
+                for (int z = 0; z < listaActualRespuestas.Count; z++)
                 {
                     if (listaActualRespuestas[z].respuesta != ultimaRespuesta)
                     {
                         encontre = false;
-                        while (encontre == false) { 
-                            if(listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
+                        while (encontre == false)
+                        {
+                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
                             {
-                                listaActualRespuestas.RemoveAt(w);
+                                borrar.Add(listaActualRespuestas[w].Id_Personaje);
                                 encontre = true;
                             }
                             w++;
-                        }          
+                        }
+                    }
+                }
+                int j = 0, k = 0;
+                bool encontre1 = false;
+                encontre = false;
+                while (encontre == false)
+                {
+                    while (encontre1 == false && k < borrar.Count&&j<respuestasTotal.Count)
+                    {
+                        if (respuestasTotal[j].Id_Personaje == borrar[k])
+                        {
+                            Console.WriteLine("Borró " + respuestasTotal[j].Id_Personaje.ToString());
+                            respuestasTotal.RemoveAt(j);
+                            encontre1 = true;
+                        }
+                        else
+                        {
+                            k++;
+                        }
+                    }
+                    if (j <= respuestasTotal.Count)
+                    {
+                        j++;
+                        k = 0;
+                        encontre1 = false;
+                    }
+                    else
+                    {
+                        encontre = true;
                     }
                 }
             }
