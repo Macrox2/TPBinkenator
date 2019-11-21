@@ -1,0 +1,8 @@
+﻿1>------ Operación Compilar iniciada: proyecto: TPFINAL, configuración: Debug Any CPU ------
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(17,10,17,17): error CS0246: El nombre del tipo o del espacio de nombres 'DisplayAttribute' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(17,10,17,17): error CS0246: El nombre del tipo o del espacio de nombres 'Display' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(17,18,17,22): error CS0246: El nombre del tipo o del espacio de nombres 'Name' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(19,10,19,17): error CS0246: El nombre del tipo o del espacio de nombres 'DisplayAttribute' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(19,10,19,17): error CS0246: El nombre del tipo o del espacio de nombres 'Display' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+1>C:\Users\44254843\Source\Repos\TPBinkenator2\TPFINAL\Models\Personaje.cs(19,18,19,22): error CS0246: El nombre del tipo o del espacio de nombres 'Name' no se encontró (¿falta una directiva using o una referencia de ensamblado?)
+========== Compilar: 0 correctos, 1 incorrectos, 0 actualizados, 0 omitidos ==========

@@ -2962,6 +2962,55 @@ select[multiple].input-lg {
     top: 0;
   }
 }
+
+
+.form-mid-horizontal .radio,
+.form-mid-horizontal .checkbox,
+.form-mid-horizontal .radio-inline,
+.form-mid-horizontal .checkbox-inline {
+    padding-top: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-mid-horizontal .radio,
+.form-mid-horizontal .checkbox {
+    min-height: 27px;
+}
+
+.form-mid-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+    .form-mid-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+    }
+}
+
+.form-mid-horizontal .has-feedback .form-control-feedback {
+    right: 15px;
+}
+
+@media (min-width: 768px) {
+    .form-mid-horizontal .form-group-lg .control-label {
+        padding-top: 11px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .form-mid-horizontal .form-group-sm .control-label {
+        padding-top: 6px;
+        font-size: 12px;
+    }
+}
+
+
+/*                  dd                */
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
