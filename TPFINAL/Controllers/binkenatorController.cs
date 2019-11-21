@@ -35,7 +35,6 @@ namespace TPFINAL.Controllers
 
         public ActionResult crearPregunta()
         {
-            return RedirectToAction("eliminarSegunRespuesta");
             if (juego.adivinado == "no")
             {
                 juego.HacerRandom();
