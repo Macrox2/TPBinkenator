@@ -122,3 +122,10 @@ textarea {
     }
 
 
+.img-CargarPers {
+    margin: 0 auto;
+    width: 15%;
+    float: right;
+    margin-top: -16%;
+    margin-right: 12%;
+}

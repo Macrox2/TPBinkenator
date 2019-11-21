@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.ComponentModel;
 
 namespace TPFINAL.Models
 {
@@ -12,9 +12,11 @@ namespace TPFINAL.Models
         private int _Id_Personaje;
         private string _Nombre_Personaje;
         private string _Ruta_Imagen;
-
+        
         public int Id_Personaje { get => Id_Personaje; set => Id_Personaje = value; }
+        [DisplayName("Nombre")]
         public string Nombre_Personaje { get => Nombre_Personaje; set => Nombre_Personaje = value; }
+        [DisplayName("Foto")]
         public string Ruta_Imagen { get => Ruta_Imagen; set => Ruta_Imagen = value; }
 
         public Personaje(int id_Personaje, string nombre_Personaje, string ruta_Imagen)
