@@ -91,24 +91,39 @@ namespace TPFINAL.Models
         public static void FiltrarCorrectas (string respuesta)
         {
             List<Respuesta> devolver = new List<Respuesta>();
-            string filtro="";
+            bool encontre;
+            int w = 0;
             if (respuesta == "si")
             {
-                for (int z = 0; z < listaActualRespuestas.Count; z++)
+                for (int z = 0; z <= listaActualRespuestas.Count; z++)
                 {
                     if (listaActualRespuestas[z].respuesta != ultimaRespuesta)
                     {
-                        listaActualRespuestas.RemoveAt(z);             
+                        encontre = false;
+                        while (encontre == false) { 
+                            if(listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
+                            {
+                                listaActualRespuestas.RemoveAt(w);
+                                encontre = true;
+                            }
+                            w++;
+                        }          
                     }
                 }
             }
             else
             {
-                for (int z = 0; z < listaActualRespuestas.Count; z++)
+                for (int z = 0; z <= listaActualRespuestas.Count; z++)
                 {
                     if (listaActualRespuestas[z].respuesta == ultimaRespuesta)
                     {
-                        listaActualRespuestas.RemoveAt(z);
+                        for (int x = 0; x <= listaActualRespuestas.Count; x++)
+                        {
+                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[x].Id_Personaje)
+                            {
+                                listaActualRespuestas.RemoveAt(x);
+                            }
+                        }
                     }
                 }
             }
