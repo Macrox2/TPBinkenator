@@ -1,5 +1,4 @@
-﻿@model TPFINAL.Models.Personaje
-
+﻿@model TPFINAL.Models.AgregarPersonaje
 @{
     ViewBag.Title = "agregar personaje";
 }
@@ -10,63 +9,59 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="jumbotron">
-        <div class="mid-form">
-            <h4 style=" margin-left: 25%;" class="text-capitalize">personaje</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="jumbotron">
+    <div class="mid-form">
+        <h4 style=" margin-left: 25%;" class="text-capitalize">personaje</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre_Personaje, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Personaje, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nombre_Personaje, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre_Personaje, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre_Personaje, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre_Personaje, "", new { @class = "text-danger" })
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Ruta_Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="file" accept="image/*" onchange="loadFile(event)" name="ImageFile" required />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Crear" class="btn btn-default" />
-                </div>
-            </div>
-
-        </div>
-        <div class="mid-form" style="float:right;margin-top: -22%;margin-right: 15%;">
-            <h4 style=" margin-left: 25%;" class="text-capitalize">personaje</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nombre_Personaje, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Nombre_Personaje, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nombre_Personaje, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Ruta_Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="file" accept="image/*" onchange="loadFile(event)" name="ImageFile" required />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Crear" class="btn btn-default" />
-                </div>
-            </div>
-
         </div>
 
-        <img class="img-CargarPers" id="output" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ruta_Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" accept="image/*" onchange="loadFile(event)" name="ImageFile" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
 
-    </div>
+    </div>   
+    <div class="mid-form" style="float:right;margin-top: -14%;margin-right: 16%;">
+        <h4 style=" margin-left: 25%;" class="text-capitalize">personaje</h4>
+        <hr />
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @foreach (var item in ViewBag.Filtros)
+        {
+        <div class="form-group">
+            <ul class="control-label col-md-2">@item.filtro</ul>
+            <div class="col-md-10">
+                @Html.EditorFor(ViewBag => ViewBag.filtro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(ViewBag => ViewBag.filtro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        }
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>    
+    <img class="img-CargarPers" id="output" />
+
+</div>
 }
 
 <script>
