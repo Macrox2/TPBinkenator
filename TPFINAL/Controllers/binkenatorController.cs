@@ -73,14 +73,15 @@ namespace TPFINAL.Controllers
             juego.FiltrarCorrectas(rta);
             return RedirectToAction("crearPregunta");
         }
-          public ActionResult AgregarPersonaje()
+        public ActionResult AgregarPersonaje()
         {
+            ViewBag.Filtros = BD.TraerFiltros();
             return View();
-
         }
         [HttpPost]
         public ActionResult InsertarPersonaje()
         {
+            
             return View("Inicio");
         }
     }
