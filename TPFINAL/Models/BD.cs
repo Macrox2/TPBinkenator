@@ -8,7 +8,7 @@ namespace TPFINAL.Models
 {
     public static class BD
     {
-        private static string _connectionString = "Server=.;Database=Akinator;User ID=alumno;Password=.;";
+        private static string _connectionString = "Server=.;Database=Akinator;User ID=alumno;Password=alumno1;";
 
         public static string connectionString
         {

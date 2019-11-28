@@ -42,7 +42,7 @@ namespace TPFINAL.Models
 
         public static void decisivas()
         {
-                if (yaHechoDecisivas == false)
+                if (terminoDecisivas == false)
                 {
                     List<Filtro> devolver = new List<Filtro>();
                     for (int i = 0; i < filtrosTotales.Count; i++)
@@ -53,23 +53,18 @@ namespace TPFINAL.Models
                         }
                     }
                     primeravez = false;
+                    if (devolver.Count == 0)
+                    {
+                    terminoDecisivas = true;
+                    }
                     listaActualFiltros = devolver;
                 }
                 else
                 {
                     List<Filtro> devolver = new List<Filtro>();
-                    for (int i = 0; i < respuestasTotal.Count; i++)
-                    {
-                        if (filtrosTotales[i].Decisivo == false)
-                        {
-                            devolver.Add(filtrosTotales[i]);
-                        }
-                    }
                     primeravez = true;
-                    yaHechoDecisivas = false;
-                    listaActualFiltros = devolver;
+                    listaActualRespuestas = respuestasTotal;
                 }
-            }
         }
 
         public static void FiltrarCorrectas (string respuesta)
@@ -103,7 +98,14 @@ namespace TPFINAL.Models
                     {
                         if (respuestasTotal[j].Id_Personaje == borrar[k])
                         {
-                            respuestasTotal.RemoveAt(j);
+                            try
+                            {
+                                respuestasTotal.RemoveAt(j);
+                            }
+                            catch
+                            {
+                                adivinado = "NO";
+                            }
                         }
                         else
                         {
@@ -118,6 +120,10 @@ namespace TPFINAL.Models
                     else
                     {
                         encontre = true;
+                        if (respuestasTotal.Count == 1)
+                        {
+                            adivinado = "SI";
+                        }
                     }
                 }
             }
@@ -147,7 +153,14 @@ namespace TPFINAL.Models
                     {
                         if (respuestasTotal[j].Id_Personaje == borrar[k])
                         {
-                            respuestasTotal.RemoveAt(j);
+                            try
+                            {
+                                respuestasTotal.RemoveAt(j);
+                            }
+                            catch
+                            {
+                                adivinado = "NO";
+                            }
                         }
                         else
                         {
@@ -162,6 +175,10 @@ namespace TPFINAL.Models
                     else
                     {
                         encontre = true;
+                        if (respuestasTotal.Count == 1)
+                        {
+                            adivinado = "SI";
+                        }
                     }
                 }
             }

@@ -35,7 +35,7 @@ namespace TPFINAL.Controllers
 
         public ActionResult crearPregunta()
         {
-            if (juego.adivinado == "no")
+            if (juego.adivinado == "no"&&juego.terminoDecisivas==false)
             {
                 juego.decisivas();
                 juego.HacerRandom();
@@ -44,17 +44,22 @@ namespace TPFINAL.Controllers
             }
             else
             {
-                if (juego.adivinado == "si")
+                if (juego.adivinado == "SI")
                 {
-                    //view ganado
-
-                    return View();
+                    return View("Fin");
                 }
                 else
                 {
-                    //view agregar
-
-                    return View();
+                    if (juego.adivinado == "NO")
+                    {
+                        return View("AgregarPersonaje");
+                    }
+                    else
+                    {
+                        juego.HacerRandom();
+                        ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+                        return View("juego");
+                    }
                 }
             }
         }
