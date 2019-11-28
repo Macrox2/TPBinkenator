@@ -13,7 +13,7 @@ namespace TPFINAL.Models
         public static string ultimoFiltro;
         public static int respuestasRestantes;
         public static bool primeravez=true;
-        public static bool yaHechoDecisivas=false;
+        public static bool terminoDecisivas=false;
         public static string adivinado = "no";
         public static int personajeID;
         public static List<Filtro> filtrosTotales = new List<Filtro>();
@@ -42,8 +42,6 @@ namespace TPFINAL.Models
 
         public static void decisivas()
         {
-            if (primeravez == true || respuestasRestantes == 0)
-            {
                 if (yaHechoDecisivas == false)
                 {
                     List<Filtro> devolver = new List<Filtro>();
@@ -55,39 +53,25 @@ namespace TPFINAL.Models
                         }
                     }
                     primeravez = false;
-                    yaHechoDecisivas = true;
                     listaActualFiltros = devolver;
                 }
                 else
                 {
-                    if (respuestasRestantes > 0)
+                    List<Filtro> devolver = new List<Filtro>();
+                    for (int i = 0; i < respuestasTotal.Count; i++)
                     {
-                        List<Filtro> devolver = new List<Filtro>();
-                        for (int i = 0; i < respuestasTotal.Count; i++)
+                        if (filtrosTotales[i].Decisivo == false)
                         {
-                            if (filtrosTotales[i].Decisivo == false)
-                            {
-                                devolver.Add(filtrosTotales[i]);
-                            }
-                        }
-                        primeravez = true;
-                        yaHechoDecisivas = false;
-                        listaActualFiltros = devolver;
-                    }
-                    else
-                    {
-                        if (respuestasRestantes <= 1)
-                        {
-                            adivinado = "si";
-                        }
-                        else
-                        {
-                            adivinado = "!!";
+                            devolver.Add(filtrosTotales[i]);
                         }
                     }
+                    primeravez = true;
+                    yaHechoDecisivas = false;
+                    listaActualFiltros = devolver;
                 }
             }
         }
+
         public static void FiltrarCorrectas (string respuesta)
         {
             List<int> borrar = new List<int>();
@@ -112,28 +96,24 @@ namespace TPFINAL.Models
                     }
                 }
                 int j = 0, k = 0;
-                bool encontre1 = false;
                 encontre = false;
                 while (encontre == false)
                 {
-                    while (encontre1 == false && k < borrar.Count&&j<respuestasTotal.Count)
+                    while (j < respuestasTotal.Count)
                     {
                         if (respuestasTotal[j].Id_Personaje == borrar[k])
                         {
-                            Console.WriteLine("Borró " + respuestasTotal[j].Id_Personaje.ToString());
                             respuestasTotal.RemoveAt(j);
-                            encontre1 = true;
                         }
                         else
                         {
-                            k++;
+                            j++;
                         }
                     }
-                    if (j <= respuestasTotal.Count)
+                    if (k < borrar.Count-1)
                     {
-                        j++;
-                        k = 0;
-                        encontre1 = false;
+                        k++;
+                        j = 0;
                     }
                     else
                     {
@@ -143,21 +123,49 @@ namespace TPFINAL.Models
             }
             else
             {
-                for (int z = 0; z <= listaActualRespuestas.Count; z++)
+                for (int z = 0; z < listaActualRespuestas.Count; z++)
                 {
                     if (listaActualRespuestas[z].respuesta == ultimaRespuesta)
                     {
-                        for (int x = 0; x <= listaActualRespuestas.Count; x++)
+                        encontre = false;
+                        while (encontre == false)
                         {
-                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[x].Id_Personaje)
+                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
                             {
-                                listaActualRespuestas.RemoveAt(x);
+                                borrar.Add(listaActualRespuestas[w].Id_Personaje);
+                                encontre = true;
                             }
+                            w++;
                         }
                     }
                 }
+                int j = 0, k = 0;
+                encontre = false;
+                while (encontre == false)
+                {
+                    while (j < respuestasTotal.Count)
+                    {
+                        if (respuestasTotal[j].Id_Personaje == borrar[k])
+                        {
+                            respuestasTotal.RemoveAt(j);
+                        }
+                        else
+                        {
+                            j++;
+                        }
+                    }
+                    if (k < borrar.Count - 1)
+                    {
+                        k++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        encontre = true;
+                    }
+                }
             }
-            
         }
+            
     }
 }

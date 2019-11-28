@@ -37,6 +37,7 @@ namespace TPFINAL.Controllers
         {
             if (juego.adivinado == "no")
             {
+                juego.decisivas();
                 juego.HacerRandom();
                 ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
                 return View("juego");
