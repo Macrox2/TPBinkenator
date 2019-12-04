@@ -28,8 +28,10 @@ namespace TPFINAL.Controllers
 
         public ActionResult Fin()
         {
-            ViewBag.Foto = "";
-            ViewBag.Nombre = "pedro";
+
+            Personaje person = BD.TraerPersonajeXid(juego.personajeID);
+            ViewBag.Foto = person.Ruta_Imagen;
+            ViewBag.Nombre = person.Nombre_Personaje;
             return View();
         }
 
@@ -85,9 +87,10 @@ namespace TPFINAL.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult InsertarPersonaje()
+        public ActionResult InsertarPersonaje(Personaje p, HttpPostedFileBase ImageFile)
         {
-            
+            p.Ruta_Imagen = ImageFile.FileName;
+            BD.AgregarPersonaje(p);
             return View("Inicio");
         }
     }
