@@ -35,7 +35,7 @@ namespace TPFINAL.Controllers
 
         public ActionResult crearPregunta()
         {
-            if (juego.adivinado == "no"&&juego.terminoDecisivas==false)
+            if (juego.adivinado == "NO" &&juego.terminoDecisivas==false)
             {
                 juego.decisivas();
                 juego.HacerRandom();
@@ -78,7 +78,7 @@ namespace TPFINAL.Controllers
         {
             juego.FiltrarCorrectas(rta);
             return RedirectToAction("crearPregunta");
-        }
+         }
         public ActionResult AgregarPersonaje()
         {
             ViewBag.Filtros = BD.TraerFiltros();

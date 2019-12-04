@@ -71,6 +71,7 @@ namespace TPFINAL.Models
         {
             List<int> borrar = new List<int>();
             bool encontre=false;
+            int id;
             int w = 0;
             if (respuesta == "si")
             {
@@ -78,109 +79,42 @@ namespace TPFINAL.Models
                 {
                     if (listaActualRespuestas[z].respuesta != ultimaRespuesta)
                     {
-                        encontre = false;
-                        while (encontre == false)
-                        {
-                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
-                            {
-                                borrar.Add(listaActualRespuestas[w].Id_Personaje);
-                                encontre = true;
-                            }
-                            w++;
-                        }
+                        id = listaActualRespuestas[z].Id_Personaje;
+                        borrar.Add(id);
                     }
                 }
                 int j = 0, k = 0;
                 encontre = false;
                 while (encontre == false)
                 {
-                    while (j < respuestasTotal.Count)
+                    if (respuestasTotal[j].Id_Personaje == borrar[k])
                     {
-                        if (respuestasTotal[j].Id_Personaje == borrar[k])
+                        respuestasTotal.RemoveAt(j);
+                        if (respuestasTotal.Count == 0)
                         {
-                            try
-                            {
-                                respuestasTotal.RemoveAt(j);
-                            }
-                            catch
-                            {
-                                adivinado = "NO";
-                            }
-                        }
-                        else
-                        {
-                            j++;
+                            encontre = true;
+                            adivinado = "SI";
                         }
                     }
-                    if (k < borrar.Count-1)
+                    j++;
+                    if (respuestasTotal.Count == 1)
+                    {
+                        adivinado = "SI";
+                    }
+                    if (j==respuestasTotal.Count)
                     {
                         k++;
                         j = 0;
                     }
-                    else
+                    if (k == borrar.Count-1)
                     {
                         encontre = true;
-                        if (respuestasTotal.Count == 1)
-                        {
-                            adivinado = "SI";
-                        }
                     }
-                }
+                }           
             }
             else
             {
-                for (int z = 0; z < listaActualRespuestas.Count; z++)
-                {
-                    if (listaActualRespuestas[z].respuesta == ultimaRespuesta)
-                    {
-                        encontre = false;
-                        while (encontre == false)
-                        {
-                            if (listaActualRespuestas[z].Id_Personaje == listaActualRespuestas[w].Id_Personaje)
-                            {
-                                borrar.Add(listaActualRespuestas[w].Id_Personaje);
-                                encontre = true;
-                            }
-                            w++;
-                        }
-                    }
-                }
-                int j = 0, k = 0;
-                encontre = false;
-                while (encontre == false)
-                {
-                    while (j < respuestasTotal.Count)
-                    {
-                        if (respuestasTotal[j].Id_Personaje == borrar[k])
-                        {
-                            try
-                            {
-                                respuestasTotal.RemoveAt(j);
-                            }
-                            catch
-                            {
-                                adivinado = "NO";
-                            }
-                        }
-                        else
-                        {
-                            j++;
-                        }
-                    }
-                    if (k < borrar.Count - 1)
-                    {
-                        k++;
-                        j = 0;
-                    }
-                    else
-                    {
-                        encontre = true;
-                        if (respuestasTotal.Count == 1)
-                        {
-                            adivinado = "SI";
-                        }
-                    }
-                }
+                
             }
         }
             
