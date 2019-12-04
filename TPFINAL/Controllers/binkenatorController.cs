@@ -59,7 +59,16 @@ namespace TPFINAL.Controllers
                     else
                     {
                         juego.HacerRandom();
-                        ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+
+                        if (Int32.TryParse(juego.ultimaRespuesta, out int b))
+                        {
+                            ViewBag.pregunta = "Tiene " + juego.ultimaRespuesta + " años ?";
+                        }
+                        else
+                        {
+                            ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+                        }
+
                         return View("juego");
                     }
                 }
@@ -72,7 +81,15 @@ namespace TPFINAL.Controllers
             juego.filtrosTotales = BD.TraerFiltros();
             juego.decisivas();
             juego.HacerRandom();
-            ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+            if (Int32.TryParse(juego.ultimaRespuesta,out int b))
+            {
+                ViewBag.pregunta = "Tiene " + juego.ultimaRespuesta + " años ?";
+            }
+            else
+            {
+               ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+            }
+           
             return View("juego");
         }
 

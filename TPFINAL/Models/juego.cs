@@ -83,30 +83,32 @@ namespace TPFINAL.Models
                         borrar.Add(id);
                     }
                 }
-                int j = 0, k = 0;
+                int j = 0, k = 0, f=0;
                 encontre = false;
                 while (encontre == false)
                 {
-                    if (respuestasTotal[j].Id_Personaje == borrar[k])
+                    if (j<respuestasTotal.Count && k<borrar.Count && respuestasTotal[j].Id_Personaje == borrar[k])
                     {
                         respuestasTotal.RemoveAt(j);
                         if (respuestasTotal.Count == 0)
                         {
                             encontre = true;
-                            adivinado = "SI";
+                            adivinado = "NO";
                         }
+                        f++;
                     }
-                    j++;
-                    if (respuestasTotal.Count == 1)
+                    if (respuestasTotal.Count <= filtrosTotales.Count)
                     {
                         adivinado = "SI";
                     }
-                    if (j==respuestasTotal.Count)
+                    if (j==respuestasTotal.Count&&f<filtrosTotales.Count)
                     {
                         k++;
                         j = 0;
                     }
-                    if (k == borrar.Count-1)
+                    j++;
+
+                    if (k == borrar.Count)
                     {
                         encontre = true;
                     }
@@ -116,6 +118,7 @@ namespace TPFINAL.Models
             {
                 
             }
+            //hay que hacer una nueva lsita de posibles personajes y descartar aquellas preguntas que ya se han hecho
         }
             
     }
