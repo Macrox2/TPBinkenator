@@ -89,7 +89,8 @@ namespace TPFINAL.Controllers
         [HttpPost]
         public ActionResult InsertarPersonaje(Personaje p, HttpPostedFileBase ImageFile)
         {
-            p.Ruta_Imagen = ImageFile.FileName;
+            
+             p.Ruta_Imagen = ImageFile.FileName;
             BD.AgregarPersonaje(p);
             return View("Inicio");
         }
