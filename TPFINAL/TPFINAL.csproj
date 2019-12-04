@@ -204,6 +204,7 @@
     <Content Include="Views\binkenator\Juego.cshtml" />
     <Content Include="Views\binkenator\AgregarPersonaje.cshtml" />
     <Content Include="Views\binkenator\AGR.cshtml" />
+    <Content Include="Views\binkenator\AgregarPersonaje2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -125,6 +125,22 @@ namespace TPFINAL.Models
             
             Desconectar(conexion);
         }
+        public static void InsertarFiltros(string profesion, string sexo, string nombre, string pelo, string hobbie)
+        {
+            Personaje persona = new Personaje();
+            SqlConnection conexion = Conectar();
+            SqlCommand consulta = conexion.CreateCommand();
+            consulta.CommandText = "SP_InsertarFiltros";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@profesion", profesion);
+            consulta.Parameters.AddWithValue("@sexo", sexo);
+            consulta.Parameters.AddWithValue("@nombre", nombre);
+            consulta.Parameters.AddWithValue("@pelo", pelo);
+            consulta.Parameters.AddWithValue("@hobbie", hobbie);
 
+            SqlDataReader lector = consulta.ExecuteReader();
+
+            Desconectar(conexion);
+        }
     }
 }
