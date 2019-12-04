@@ -85,7 +85,62 @@ namespace TPFINAL.Models
         }
 
 
+        public static Personaje TraerPersonajeXid(int id)
+        {
+            Personaje persona = new Personaje();
+            SqlConnection conexion = Conectar();
+            SqlCommand consulta = conexion.CreateCommand();
+            consulta.CommandText = "SP_TraerPersonaje";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.Add(id);
+       
+            SqlDataReader lector = consulta.ExecuteReader();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    string nombre = (lector["filtro"]).ToString();
+                    string foto = (lector["filtro"]).ToString();
 
+                    persona = new Personaje(id, nombre, foto);
+                }
+                
+            }
+            Desconectar(conexion);
 
+            return persona;
+
+        }
+        public static void AgregarPersonaje(Personaje person)
+        {
+            Personaje persona = new Personaje();
+            SqlConnection conexion = Conectar();
+            SqlCommand consulta = conexion.CreateCommand();
+            consulta.CommandText = "SP_AgregarPersonaje";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@nombre", person.Nombre_Personaje);
+            consulta.Parameters.AddWithValue("@foto", person.Ruta_Imagen);
+
+            SqlDataReader lector = consulta.ExecuteReader();
+            
+            Desconectar(conexion);
+        }
+        public static void InsertarFiltros(string profesion, string sexo, string nombre, string pelo, string hobbie)
+        {
+            Personaje persona = new Personaje();
+            SqlConnection conexion = Conectar();
+            SqlCommand consulta = conexion.CreateCommand();
+            consulta.CommandText = "SP_InsertarFiltros";
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.Parameters.AddWithValue("@profesion", profesion);
+            consulta.Parameters.AddWithValue("@sexo", sexo);
+            consulta.Parameters.AddWithValue("@nombre", nombre);
+            consulta.Parameters.AddWithValue("@pelo", pelo);
+            consulta.Parameters.AddWithValue("@hobbie", hobbie);
+
+            SqlDataReader lector = consulta.ExecuteReader();
+
+            Desconectar(conexion);
+        }
     }
 }

@@ -13,11 +13,12 @@ namespace TPFINAL.Models
         private string _Nombre_Personaje;
         private string _Ruta_Imagen;
         
-        public int Id_Personaje { get => Id_Personaje; set => Id_Personaje = value; }
+
+        public int Id_Personaje { get => _Id_Personaje; set => _Id_Personaje = value; }
         [DisplayName("Nombre")]
-        public string Nombre_Personaje { get => Nombre_Personaje; set => Nombre_Personaje = value; }
+        public string Nombre_Personaje { get => _Nombre_Personaje; set => _Nombre_Personaje = value; }
         [DisplayName("Foto")]
-        public string Ruta_Imagen { get => Ruta_Imagen; set => Ruta_Imagen = value; }
+        public string Ruta_Imagen{ get => _Ruta_Imagen; set => _Ruta_Imagen = value; }
 
         public Personaje(int id_Personaje, string nombre_Personaje, string ruta_Imagen)
         {

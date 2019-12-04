@@ -28,8 +28,10 @@ namespace TPFINAL.Controllers
 
         public ActionResult Fin()
         {
-            ViewBag.Foto = "";
-            ViewBag.Nombre = "pedro";
+
+            Personaje person = BD.TraerPersonajeXid(juego.personajeID);
+            ViewBag.Foto = person.Ruta_Imagen;
+            ViewBag.Nombre = person.Nombre_Personaje;
             return View();
         }
 
@@ -84,10 +86,23 @@ namespace TPFINAL.Controllers
             ViewBag.Filtros = BD.TraerFiltros();
             return View();
         }
+        public ActionResult AgregarPersonaje2()
+        {
+            ViewBag.Filtros = BD.TraerFiltros();
+            return View();
+        }
         [HttpPost]
-        public ActionResult InsertarPersonaje()
+        public ActionResult InsertarPersonaje(Personaje p, HttpPostedFileBase ImageFile)
         {
             
+             p.Ruta_Imagen = ImageFile.FileName;
+            BD.AgregarPersonaje(p);
+            return View("AgregarPersonaje2");
+        }
+        [HttpPost]
+        public ActionResult InsertarFiltros(string profesion, string sexo, string nombre, string pelo, string hobbie)
+        {
+            BD.InsertarFiltros(profesion,sexo,nombre,pelo,hobbie);
             return View("Inicio");
         }
     }
