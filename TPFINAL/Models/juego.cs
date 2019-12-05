@@ -77,7 +77,7 @@ namespace TPFINAL.Models
             {
                 for (int z = 0; z < listaActualRespuestas.Count; z++)
                 {
-                    if (listaActualRespuestas[z].respuesta != ultimaRespuesta)
+                    if (listaActualRespuestas[z].respuesta != ultimaRespuesta && ultimoFiltro == listaActualRespuestas[z].Filtro)
                     {
                         id = listaActualRespuestas[z].Id_Personaje;
                         borrar.Add(id);
@@ -118,7 +118,6 @@ namespace TPFINAL.Models
             {
                 
             }
-            //hay que hacer una nueva lsita de posibles personajes y descartar aquellas preguntas que ya se han hecho
         }
             
     }
