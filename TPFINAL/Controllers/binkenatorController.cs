@@ -37,7 +37,7 @@ namespace TPFINAL.Controllers
 
         public ActionResult crearPregunta()
         {
-            if (juego.adivinado == "NO" &&juego.terminoDecisivas==false)
+            if (juego.adivinado == "!!")
             {
                 juego.decisivas();
                 juego.HacerRandom();

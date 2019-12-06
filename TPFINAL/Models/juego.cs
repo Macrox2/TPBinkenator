@@ -14,7 +14,7 @@ namespace TPFINAL.Models
         public static int respuestasRestantes;
         public static bool primeravez=true;
         public static bool terminoDecisivas=false;
-        public static string adivinado = "no";
+        public static string adivinado = "!!";
         public static int personajeID;
         public static List<Filtro> filtrosTotales = new List<Filtro>();
         public static List<Respuesta> listaActualRespuestas = new List<Respuesta>();
@@ -37,7 +37,7 @@ namespace TPFINAL.Models
             int randomResp = random.Next(0, listaActualRespuestas.Count);
             ultimaRespuesta = listaActualRespuestas[randomResp].respuesta;
             respuestasRestantes--;
-            ultimoFiltro = listaActualFiltros[randomNumber].filtro;
+             ultimoFiltro = listaActualFiltros[randomNumber].filtro;
         }
 
         public static void decisivas()
@@ -53,9 +53,9 @@ namespace TPFINAL.Models
                         }
                     }
                     primeravez = false;
-                    if (devolver.Count == 0)
+                    if (listaActualFiltros.Count == 0)
                     {
-                    terminoDecisivas = true;
+                        terminoDecisivas = true;
                     }
                     listaActualFiltros = devolver;
                 }
@@ -64,13 +64,15 @@ namespace TPFINAL.Models
                     List<Filtro> devolver = new List<Filtro>();
                     primeravez = true;
                     listaActualRespuestas = respuestasTotal;
+                    listaActualFiltros = filtrosTotales;
                 }
         }
 
         public static void FiltrarCorrectas (string respuesta)
         {
             List<int> borrar = new List<int>();
-            bool encontre=false;
+            List<int> borrarFiltro = new List<int>();
+            bool encontre =false;
             int id;
             int w = 0;
             if (respuesta == "si")
@@ -83,7 +85,7 @@ namespace TPFINAL.Models
                         borrar.Add(id);
                     }
                 }
-                int j = respuestasTotal.Count-1, k = borrar.Count-1, f=0;
+                int j = respuestasTotal.Count-1, k = borrar.Count-1, f=0, p;
                 encontre = false;
                 while (encontre == false)
                 {
@@ -104,6 +106,7 @@ namespace TPFINAL.Models
                     if (j<0)
                     {
                         k--;
+
                         j = juego.respuestasTotal.Count-1;
                     }
                     j--;
@@ -112,9 +115,21 @@ namespace TPFINAL.Models
                     {
                         encontre = true;
                     }
-                }           
+                }
+                bool encontrado = false;
+                p = 0;
+                while (encontrado==false)
+                {
+                    if (p<listaActualFiltros.Count && listaActualFiltros[p].filtro == ultimoFiltro)
+                    {
+                        listaActualFiltros.RemoveAt(p);
+                        encontrado = true;
+                    }
+                    p++;
+                }
             }
             else
+
             {
                 
             }
