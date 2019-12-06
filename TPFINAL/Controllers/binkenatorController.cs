@@ -41,7 +41,7 @@ namespace TPFINAL.Controllers
             {
                 juego.decisivas();
                 juego.HacerRandom();
-                ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+                ViewBag.pregunta = "su " + juego.ultimoFiltro + " es " + juego.ultimaRespuesta + "?";
                 return View("juego");
             }
             else
@@ -66,7 +66,7 @@ namespace TPFINAL.Controllers
                         }
                         else
                         {
-                            ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+                            ViewBag.pregunta = "su " + juego.ultimoFiltro + " es " + juego.ultimaRespuesta + "?";
                         }
 
                         return View("juego");
@@ -87,7 +87,7 @@ namespace TPFINAL.Controllers
             }
             else
             {
-               ViewBag.pregunta = "es " + juego.ultimaRespuesta + "?";
+                ViewBag.pregunta = "su " + juego.ultimoFiltro + " es " + juego.ultimaRespuesta + "?"; 
             }
            
             return View("juego");

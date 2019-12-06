@@ -83,11 +83,11 @@ namespace TPFINAL.Models
                         borrar.Add(id);
                     }
                 }
-                int j = 0, k = 0, f=0;
+                int j = respuestasTotal.Count-1, k = borrar.Count-1, f=0;
                 encontre = false;
                 while (encontre == false)
                 {
-                    if (j<respuestasTotal.Count && k<borrar.Count && respuestasTotal[j].Id_Personaje == borrar[k])
+                    if (j>=0 && k>=0 && respuestasTotal[j].Id_Personaje == borrar[k])
                     {
                         respuestasTotal.RemoveAt(j);
                         if (respuestasTotal.Count == 0)
@@ -101,14 +101,14 @@ namespace TPFINAL.Models
                     {
                         adivinado = "SI";
                     }
-                    if (j==respuestasTotal.Count&&f<filtrosTotales.Count)
+                    if (j<0)
                     {
-                        k++;
-                        j = 0;
+                        k--;
+                        j = juego.respuestasTotal.Count-1;
                     }
-                    j++;
+                    j--;
 
-                    if (k == borrar.Count)
+                    if (k < 0)
                     {
                         encontre = true;
                     }
